@@ -1,24 +1,30 @@
 package br.com.altech.rountinner.service;
 
-import br.com.altech.rountinner.controller.UserDTO;
+import br.com.altech.rountinner.entity.User;
+import br.com.altech.rountinner.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class UserService {
 
-    private List<UserDTO> pesisti = new ArrayList<>();
+    private final UserRepository repository;
 
-    public UserDTO created(UserDTO dto){
-       pesisti.add(dto);
-       return dto;
+    public UserService(UserRepository repository) {
+        this.repository = repository;
     }
-    public void delete(){
-        pesisti.clear();
+
+    public User created(User dto) {
+        return repository.save(dto);
     }
-    public List<UserDTO> list(String nome){
-        return pesisti.stream().toList();
+
+    public void delete(Long id) {
+        repository.deleteById(id);
+    }
+
+    public List<User> list(String nome) {
+        return repository.findByNome(nome);
+
     }
 }
