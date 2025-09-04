@@ -3,11 +3,17 @@ package br.com.altech.rountinner.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@Builder
 @Entity
-@Table(name = "users") // define o nome da tabela no Postgres
+@Table(name = "users")
+@NoArgsConstructor
+@AllArgsConstructor // define o nome da tabela no Postgres
 public class User {
 
     @Id

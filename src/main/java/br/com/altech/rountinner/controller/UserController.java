@@ -1,7 +1,11 @@
 package br.com.altech.rountinner.controller;
 
 import br.com.altech.rountinner.entity.User;
+import br.com.altech.rountinner.entity.UserDTO;
 import br.com.altech.rountinner.service.UserService;
+import jdk.jshell.Snippet;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,15 +21,16 @@ public class UserController {
     }
 
     @PostMapping
-    public User cadastro(@RequestBody User use){
-        return service.created(use);
+    public ResponseEntity <UserDTO> cadastro(@RequestBody UserDTO dto){
+         return ResponseEntity.status(HttpStatus.CREATED).body( service.created(dto));
     }
     @GetMapping
-    public List<User> lista(@RequestParam(value = "nome",required = true) String nome){
-        return service.list(nome);
+    public ResponseEntity<List<UserDTO>> lista(@RequestParam(value = "nome",required = true) String nome){
+        return ResponseEntity.ok(service.list(nome));
     }
     @DeleteMapping("/{id}")
-    public void deletar(@PathVariable Long id){
+    public ResponseEntity <Void> deletar(@PathVariable Long id){
         service.delete(id);
+        return ResponseEntity.noContent().build();
     }
 }
