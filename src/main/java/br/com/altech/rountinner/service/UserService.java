@@ -1,6 +1,5 @@
 package br.com.altech.rountinner.service;
 
-import br.com.altech.rountinner.entity.User;
 import br.com.altech.rountinner.entity.UserDTO;
 import br.com.altech.rountinner.exception.UserNotFoudException;
 import br.com.altech.rountinner.mapper.UserMapper;

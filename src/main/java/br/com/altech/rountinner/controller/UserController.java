@@ -1,9 +1,7 @@
 package br.com.altech.rountinner.controller;
 
-import br.com.altech.rountinner.entity.User;
 import br.com.altech.rountinner.entity.UserDTO;
 import br.com.altech.rountinner.service.UserService;
-import jdk.jshell.Snippet;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
