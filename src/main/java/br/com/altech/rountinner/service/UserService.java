@@ -19,7 +19,7 @@ public class UserService {
     }
 
     public UserDTO created(UserDTO dto) {
-        return Optional.of(dto)
+        return Optional.ofNullable(dto)
                 .map(UserMapper::toEntity)
                 .map(repository::save)
                 .map(UserMapper::toDTO)
