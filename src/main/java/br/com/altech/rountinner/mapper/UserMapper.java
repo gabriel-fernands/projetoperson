@@ -14,6 +14,7 @@ public class UserMapper {
     }
     public static UserDTO toDTO(User user){
         return UserDTO.builder()
+                .id(user.getId())
                 .nome(user.getNome())
                 .cpf(user.getCpf())
                 .idade(user.getIdade())
